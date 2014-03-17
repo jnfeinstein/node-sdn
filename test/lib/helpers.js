@@ -1,6 +1,6 @@
-if (!global.finishAfter)
-global.finishAfter = function(test, ms) {
+if (!global.doAfter)
+global.doAfter = function(ms, callback) {
   setTimeout(function() {
-    test.done();
+    callback();
   }, ms);
 }
