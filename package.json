@@ -5,7 +5,6 @@
   "dependencies": {
     "execSync": "*",
     "node-v8-clone": "*",
-    "underscore": "*",
     "raw-socket": "git+ssh://git@github.com:jnfeinstein/node-raw-socket.git"
   }
 }
