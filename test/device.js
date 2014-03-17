@@ -1,11 +1,11 @@
 require('./lib/requires');
 
 exports.testDeviceConnection = function(test) {
-  var v1 = new Virtual(), v2 = new Virtual();
-  v1.connect(v2);
-  v2.onReceived(function() {
+  var device1 = new Device(), device2 = new Device();
+  device1.connect(device2);
+  device2.onReceived(function() {
     test.ok(true, 'other port received packet');
     test.done();
   });
-  v1.send(new Packet());
+  device1.send(new Packet());
 };

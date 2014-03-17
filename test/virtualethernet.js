@@ -5,15 +5,15 @@ require('./lib/requires');
   rewritten when sending
 */
 exports.testMacGetsRewritten = function(test) {
-  var v1 = new VirtualEthernet(), v2 = new Virtual();
-  v1.connect(v2);
-  v2.onReceived(function(packet) {
-    test.deepEqual(v1.mac, packet.srcMac);
+  var device1 = new VirtualEthernet(), device2 = new Device();
+  device1.connect(device2);
+  device2.onReceived(function(packet) {
+    test.deepEqual(device1.mac, p.srcMac);
     test.done();
   });
   var p = new Packet();
-  test.notDeepEqual(v1.mac, p.srcMac);
-  v1.send(p);
+  test.notDeepEqual(device1.mac, p.srcMac);
+  device1.send(p);
 };
 
 /*
