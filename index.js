@@ -1,7 +1,6 @@
 require('./lib/requires');
 
-var s = new Switch(2);
-var switch1 = new Switch("eth2", "virtual");
-var switch2 = new Switch("virtual", "eth1");
+var switch1 = new Switch("eth1", "virtual-ethernet");
+var switch2 = new Switch("virtual", "virtual-ethernet");
 
-Device.connect(switch1.devices[1], switch2.devices[0]);
+switch1.getDevice(1).connect(switch2.getDevice(0));
