@@ -9,3 +9,16 @@ exports.testDeviceConnection = function(test) {
   });
   device1.send(new Packet());
 };
+
+exports.testFilteredDevice = function(test) {
+  var device = new Device();
+  var newMac = new Mac();
+  var changeSrcMac = new ChangeSrcMac(newMac);
+  var packet = new Packet();
+  device.addFilter('receive', changeSrcMac);
+  device.onReceived(function(packet) {
+    test.deepEqual(newMac, packet.srcMac);
+    test.done();
+  });
+  device.receive(packet);
+};
