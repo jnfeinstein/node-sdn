@@ -1,12 +1,5 @@
 require('./lib/requires');
 
-var e1 = new Ethernet('eth1');
-var e2 = new Ethernet('eth1');
-
-e1.onReceived(e2.send.bind(e2));
-
-e1.addFilter('receive', function(packet) {
-  if (packet.vlan) return false;
-  return true;
-});
-e2.addFilter('send', new ChangeVlan({'-': 12}));
+var s = new Switch({eth0: 'eth0', eth1: 'eth2'});
+s.devices.eth0.addFilter('send', new ChangeVlan({10: null}));
+s.devices.eth1.addFilter('send', new ChangeVlan({'-': 10}));
