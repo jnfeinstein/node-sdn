@@ -15,18 +15,3 @@ exports.testMacGetsRewritten = function(test) {
   test.notDeepEqual(device1.mac, p.srcMac);
   device1.send(p);
 };
-
-/*
-  Make sure that the device wont send a packet
-  with itself as the src mac
-*/
-exports.testWontSendIfSrc = function(test) {
-  var v = new VirtualEthernet(), sent = false;
-
-  v.onSent(function() { sent = true; });
-  doAfter(500, function() {
-    test.ok(!sent);
-    test.done();
-  });
-  v.send(new Packet().setSrcMac(v.mac));
-};
