@@ -6,5 +6,9 @@
     "execSync": "*",
     "node-v8-clone": "*",
     "raw-socket": "jnfeinstein/node-raw-socket"
+  },
+  "devDependencies": {
+    "grunt-closurecompiler": "^0.9.9",
+    "grunt": "^0.4.4"
   }
 }
