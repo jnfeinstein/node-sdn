@@ -4,7 +4,6 @@
   "author": "Joel",
   "dependencies": {
     "execSync": "*",
-    "node-v8-clone": "*",
     "raw-socket": "jnfeinstein/node-raw-socket"
   }
 }
